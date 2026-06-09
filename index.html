@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FROMFROM — Say It With Your Style · SIWYS</title>
+  <meta name="description" content="Your country's flag inside the letterforms. No caption needed. 199 countries, instant download." />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;0,900;1,400;1,700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            midnight: '#0A0806',
+            surface:  '#12100D',
+            card:     '#1A1710',
+            border:   '#262218',
+            accent:   '#C8A84A',
+            'accent-light': '#E0BF6A',
+            coral:    '#D4782A',
+            muted:    '#78716C',
+            soft:     '#A8A29E',
+            cream:    '#F5F0E8',
+          },
+          fontFamily: {
+            display: ['Playfair Display', 'serif'],
+            body:    ['Inter', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { background-color: #0A0806; font-family: 'Inter', sans-serif; }
+
+    .grid-bg {
+      background-image:
+        linear-gradient(rgba(200,168,74,0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(200,168,74,0.05) 1px, transparent 1px);
+      background-size: 48px 48px;
+    }
+    .hero-glow {
+      background: radial-gradient(ellipse 80% 50% at 50% -10%, rgba(200,168,74,0.14) 0%, transparent 70%);
+    }
+
+    .grad-text {
+      background: linear-gradient(135deg, #C8A84A, #D4782A);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .btn-grad { background: linear-gradient(135deg, #C8A84A, #D4782A); }
+
+    .listing-card {
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .listing-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 40px rgba(200,168,74,0.18);
+    }
+
+    /* ── TICKER ── */
+    .ff-strip {
+      background: #12100D;
+      border-top: 1px solid #262218;
+      border-bottom: 1px solid #262218;
+      padding: 14px 0;
+      overflow: hidden;
+      -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 4%, #000 96%, transparent 100%);
+      mask-image: linear-gradient(to right, transparent 0%, #000 4%, #000 96%, transparent 100%);
+    }
+    .ff-strip-track {
+      display: flex;
+      align-items: center;
+      width: max-content;
+      animation: ffTicker 36s linear infinite;
+    }
+    .ff-strip-item {
+      font-size: 12.5px;
+      font-weight: 400;
+      letter-spacing: 0.3px;
+      color: #A8A29E;
+      padding: 0 28px;
+      white-space: nowrap;
+    }
+    .ff-strip-sep {
+      color: #C8A84A;
+      opacity: 0.5;
+      font-size: 14px;
+      flex-shrink: 0;
+    }
+    .ff-strip-item--brand {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 16px;
+      color: #C8A84A;
+      padding: 0 36px;
+    }
+
+    .cs-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 11px; font-weight: 500; letter-spacing: 0.05em;
+      color: #C8A84A;
+      background: rgba(200,168,74,0.1);
+      border: 1px solid rgba(200,168,74,0.25);
+      padding: 4px 10px; border-radius: 999px;
+    }
+    .cs-badge::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: #C8A84A; }
+
+    .btn-disabled { opacity: 0.45; cursor: not-allowed; pointer-events: none; }
+
+    @keyframes ffTicker {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* Flag grid shimmer */
+    @keyframes shimmer {
+      0%, 100% { opacity: 0.28; }
+      50%       { opacity: 0.38; }
+    }
+    .flag-shimmer { animation: shimmer 4s ease-in-out infinite; }
+    .flag-shimmer:nth-child(2) { animation-delay: 0.8s; }
+    .flag-shimmer:nth-child(3) { animation-delay: 1.6s; }
+    .flag-shimmer:nth-child(4) { animation-delay: 2.4s; }
+  </style>
+</head>
+<body class="text-cream">
+
+<!-- NAV -->
+<nav class="fixed top-0 left-0 right-0 z-50 h-14 flex items-center justify-between px-6 md:px-10"
+     style="background:rgba(10,8,6,0.92);backdrop-filter:blur(12px);border-bottom:1px solid #262218;">
+  <a href="https://applesamosa.com" class="text-xs tracking-widest uppercase text-muted hover:text-soft transition-colors">← Apple Samosa</a>
+  <div class="font-display font-bold text-lg tracking-wide">
+    SIWY<span class="grad-text">S</span>
+  </div>
+  <a href="#packs" class="btn-grad text-midnight text-xs tracking-widest uppercase px-5 py-2 rounded-full font-semibold hover:opacity-90 transition-opacity">
+    Get your flag →
+  </a>
+</nav>
+
+<!-- HERO -->
+<section class="relative min-h-screen flex flex-col justify-center items-center text-center pt-14 overflow-hidden grid-bg">
+  <div class="hero-glow absolute inset-0 pointer-events-none"></div>
+
+  <!-- Background flag grid -->
+  <div class="absolute inset-0 grid grid-cols-4 grid-rows-2 gap-0.5 opacity-30 pointer-events-none">
+    <div class="flag-shimmer overflow-hidden"><img src="images/ghana.png" alt="" class="w-full h-full object-cover object-top"></div>
+    <div class="flag-shimmer overflow-hidden"><img src="images/uk.png" alt="" class="w-full h-full object-cover object-top"></div>
+    <div class="flag-shimmer overflow-hidden"><img src="images/india.png" alt="" class="w-full h-full object-cover object-top"></div>
+    <div class="flag-shimmer overflow-hidden"><img src="images/jamaica.png" alt="" class="w-full h-full object-cover object-top"></div>
+    <div class="flag-shimmer overflow-hidden"><img src="images/nigeria.png" alt="" class="w-full h-full object-cover object-top"></div>
+    <div class="flag-shimmer overflow-hidden"><img src="images/brazil.png" alt="" class="w-full h-full object-cover object-top"></div>
+    <div class="flag-shimmer overflow-hidden"><img src="images/japan.png" alt="" class="w-full h-full object-cover object-top"></div>
+    <div class="flag-shimmer overflow-hidden"><img src="images/trinidad.png" alt="" class="w-full h-full object-cover object-top"></div>
+  </div>
+  <!-- Gradient fade over flags -->
+  <div class="absolute inset-0 pointer-events-none"
+       style="background:linear-gradient(to bottom, rgba(10,8,6,0.5) 0%, rgba(10,8,6,0.2) 40%, rgba(10,8,6,0.88) 100%);">
+  </div>
+
+  <div class="relative z-10 max-w-4xl mx-auto px-6">
+    <!-- Pill label -->
+    <div class="inline-flex items-center gap-2 text-xs tracking-widest uppercase mb-8"
+         style="color:#C8A84A;background:rgba(200,168,74,0.1);border:1px solid rgba(200,168,74,0.25);padding:6px 16px;border-radius:999px;">
+      <span style="width:6px;height:6px;border-radius:50%;background:#C8A84A;display:inline-block;"></span>
+      Say It With Your Style
+    </div>
+
+    <h1 class="font-display font-black leading-none tracking-tight mb-6"
+        style="font-size:clamp(72px,16vw,180px);line-height:0.88;">
+      FROM<span class="grad-text">FROM</span>?
+    </h1>
+
+    <p class="font-display italic font-normal text-soft max-w-lg mx-auto mb-10 leading-relaxed"
+       style="font-size:clamp(18px,2.2vw,26px);">
+      Tell me where you're from.<br>Without telling me.
+    </p>
+
+    <!-- CTAs -->
+    <div class="flex flex-wrap gap-4 justify-center mb-12">
+      <a href="#packs"
+         class="btn-grad text-midnight font-semibold text-sm tracking-widest uppercase px-8 py-4 rounded-full hover:opacity-90 transition-opacity">
+        Find your country →
+      </a>
+      <a href="#concept"
+         class="text-soft font-medium text-sm tracking-widest uppercase px-8 py-4 rounded-full border border-border hover:border-soft hover:text-cream transition-all">
+        How it works
+      </a>
+    </div>
+
+    <!-- Stats row -->
+    <div class="flex items-center justify-center gap-6 md:gap-10 flex-wrap">
+      <div class="text-center">
+        <div class="font-display font-bold text-3xl grad-text">199</div>
+        <div class="text-xs tracking-widest uppercase text-muted mt-1">Countries</div>
+      </div>
+      <div class="text-muted text-2xl">·</div>
+      <div class="text-center">
+        <div class="font-display font-bold text-3xl grad-text">7</div>
+        <div class="text-xs tracking-widest uppercase text-muted mt-1">Packs</div>
+      </div>
+      <div class="text-muted text-2xl">·</div>
+      <div class="text-center">
+        <div class="font-display font-bold text-3xl grad-text">A4</div>
+        <div class="text-xs tracking-widest uppercase text-muted mt-1">Print-ready</div>
+      </div>
+      <div class="text-muted text-2xl">·</div>
+      <div class="text-center">
+        <div class="font-display font-bold text-3xl grad-text">PNG</div>
+        <div class="text-xs tracking-widest uppercase text-muted mt-1">Transparent</div>
+      </div>
+    </div>
+
+    <div class="mt-14 text-xs tracking-widest uppercase text-muted flex items-center justify-center gap-3">
+      <span class="w-6 h-px bg-muted opacity-50"></span>
+      Scroll to explore
+    </div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<section class="ff-strip">
+  <div class="ff-strip-track">
+    <!-- Set 1 -->
+    <span class="ff-strip-item">199 countries · one concept</span>
+    <span class="ff-strip-sep">✦</span>
+    <span class="ff-strip-item--brand">FROMFROM?</span>
+    <span class="ff-strip-sep">✦</span>
+    <span class="ff-strip-item">Frame it · Wear it · Send it</span>
+    <span class="ff-strip-sep">✦</span>
+    <span class="ff-strip-item">Your flag fills the letters</span>
+    <span class="ff-strip-sep">✦</span>
+    <span class="ff-strip-item--brand">FROMFROM?</span>
+    <span class="ff-strip-sep">✦</span>
+    <span class="ff-strip-item">No caption needed</span>
+    <span class="ff-strip-sep">✦</span>
+    <span class="ff-strip-item">Transparent PNG · any background</span>
+    <span class="ff-strip-sep">✦</span>
+    <span class="ff-strip-item--brand">FROMFROM?</span>
+    <span class="ff-strip-sep">✦</span>
+    <span class="ff-strip-item">Instant download · no account</span>
+    <span class="ff-strip-sep">✦</span>
+    <span class="ff-strip-item">Tell me where you're from — without telling me</span>
+    <span class="ff-strip-sep">✦</span>
+    <span class="ff-strip-item--brand">FROMFROM?</span>
+    <span class="ff-strip-sep">✦</span>
+    <!-- Set 2 (duplicate for seamless loop) -->
+    <span class="ff-strip-item">199 countries · one concept</span>
+    <span class="ff-strip-sep">✦</span>
+    <span class="ff-strip-item--brand">FROMFROM?</span>
+    <span class="ff-strip-sep">✦</span>
+    <span class="ff-strip-item">Frame it · Wear it · Send it</span>
+    <span class="ff-strip-sep">✦</span>
+    <span class="ff-strip-item">Your flag fills the letters</span>
+    <span class="ff-strip-sep">✦</span>
+    <span class="ff-strip-item--brand">FROMFROM?</span>
+    <span class="ff-strip-sep">✦</span>
+    <span class="ff-strip-item">No caption needed</span>
+    <span class="ff-strip-sep">✦</span>
+    <span class="ff-strip-item">Transparent PNG · any background</span>
+    <span class="ff-strip-sep">✦</span>
+    <span class="ff-strip-item--brand">FROMFROM?</span>
+    <span class="ff-strip-sep">✦</span>
+    <span class="ff-strip-item">Instant download · no account</span>
+    <span class="ff-strip-sep">✦</span>
+    <span class="ff-strip-item">Tell me where you're from — without telling me</span>
+    <span class="ff-strip-sep">✦</span>
+    <span class="ff-strip-item--brand">FROMFROM?</span>
+    <span class="ff-strip-sep">✦</span>
+  </div>
+</section>
+
+<!-- CONCEPT -->
+<section id="concept" class="bg-midnight py-28 px-6 md:px-10">
+  <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+    <div>
+      <p class="text-xs tracking-widest uppercase mb-5 font-medium" style="color:#C8A84A;">The Idea</p>
+      <h2 class="font-display font-bold leading-tight mb-6" style="font-size:clamp(32px,4vw,52px);">
+        Your flag.<br>Inside the <span class="grad-text italic">letters.</span><br>No caption needed.
+      </h2>
+      <p class="text-soft leading-relaxed mb-4" style="font-size:15px;">
+        FROMFROM is a printable digital asset — your country's flag fills the letterforms. No country name. No explanation. Just the colours, the pattern, the symbols speaking for themselves.
+      </p>
+      <p class="text-soft leading-relaxed mb-10" style="font-size:15px;">
+        Frame it. Print it on a tee. Crop it for a phone wallpaper. Send it to someone who'll know immediately what it means.
+      </p>
+      <a href="#packs"
+         class="btn-grad text-midnight font-semibold text-sm tracking-widest uppercase px-8 py-4 rounded-full hover:opacity-90 transition-opacity inline-flex items-center gap-2">
+        Shop by region →
+      </a>
+    </div>
+    <!-- Flag preview pills -->
+    <div class="flex flex-col gap-3">
+      <div class="overflow-hidden listing-card" style="aspect-ratio:4/1;background:#1A1710;border-radius:999px;border:1px solid rgba(200,168,74,0.3);">
+        <img src="images/ghana.png" alt="Ghana FROMFROM" class="w-full h-full object-contain">
+      </div>
+      <div class="overflow-hidden listing-card" style="aspect-ratio:4/1;background:#1A1710;border-radius:999px;border:1px solid rgba(200,168,74,0.3);">
+        <img src="images/jamaica.png" alt="Jamaica FROMFROM" class="w-full h-full object-contain">
+      </div>
+      <div class="overflow-hidden listing-card" style="aspect-ratio:4/1;background:#1A1710;border-radius:999px;border:1px solid rgba(200,168,74,0.3);">
+        <img src="images/india.png" alt="India FROMFROM" class="w-full h-full object-contain">
+      </div>
+      <div class="overflow-hidden listing-card" style="aspect-ratio:4/1;background:#1A1710;border-radius:999px;border:1px solid rgba(200,168,74,0.3);">
+        <img src="images/nigeria.png" alt="Nigeria FROMFROM" class="w-full h-full object-contain">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="py-24 px-6 md:px-10" style="background:#12100D;">
+  <div class="max-w-6xl mx-auto">
+    <p class="text-xs tracking-widest uppercase mb-3 font-medium" style="color:#C8A84A;">How it works</p>
+    <h2 class="font-display font-bold mb-14" style="font-size:clamp(28px,3.5vw,44px);">
+      Three steps. One statement.
+    </h2>
+    <div class="grid md:grid-cols-3 gap-5">
+      <div class="listing-card rounded-2xl p-8" style="background:#1A1710;border:1px solid #262218;">
+        <div class="font-display font-black mb-5 grad-text" style="font-size:52px;line-height:1;">01</div>
+        <h3 class="font-display font-bold text-xl mb-3">Choose your pack</h3>
+        <p class="text-soft leading-relaxed text-sm">Pick the regional pack that includes your country — or go for the Full Collection (all 199 nations). Instant download, no account needed.</p>
+      </div>
+      <div class="listing-card rounded-2xl p-8" style="background:#1A1710;border:1px solid #262218;">
+        <div class="font-display font-black mb-5 grad-text" style="font-size:52px;line-height:1;">02</div>
+        <h3 class="font-display font-bold text-xl mb-3">Download your file</h3>
+        <p class="text-soft leading-relaxed text-sm">High-resolution transparent PNG. Works on any background — white, dark, coloured. No clipping mask, no design work required.</p>
+      </div>
+      <div class="listing-card rounded-2xl p-8" style="background:#1A1710;border:1px solid #262218;">
+        <div class="font-display font-black mb-5 grad-text" style="font-size:52px;line-height:1;">03</div>
+        <h3 class="font-display font-bold text-xl mb-3">Use it your way</h3>
+        <p class="text-soft leading-relaxed text-sm">Print A4 and frame it. Upload to Printful for a flag tee. Crop to portrait for a phone wallpaper. Drop into Canva. Send it. It's yours.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PACKS -->
+<section id="packs" class="bg-midnight py-28 px-6 md:px-10">
+  <div class="max-w-6xl mx-auto">
+    <div class="flex items-baseline justify-between mb-14 pb-5" style="border-bottom:1px solid #262218;">
+      <div>
+        <p class="text-xs tracking-widest uppercase mb-2 font-medium" style="color:#C8A84A;">Shop</p>
+        <h2 class="font-display font-bold" style="font-size:clamp(28px,3.5vw,44px);">Find your country.</h2>
+      </div>
+      <span class="text-muted text-sm hidden md:block">199 countries · 7 packs · instant download</span>
+    </div>
+
+    <!-- Regional packs -->
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-5">
+
+      <a href="#" class="listing-card rounded-2xl overflow-hidden flex flex-col no-underline" style="background:#1A1710;border:1px solid #262218;">
+        <div class="overflow-hidden" style="aspect-ratio:3/2;">
+          <img src="images/fromfrom-sub-saharan-africa-cover.png" alt="Sub-Saharan Africa" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105">
+        </div>
+        <div class="p-6 flex flex-col flex-1">
+          <p class="text-xs tracking-widest uppercase mb-2 font-medium" style="color:#C8A84A;">Africa</p>
+          <h3 class="font-display font-bold text-lg mb-1">Sub-Saharan Africa</h3>
+          <p class="text-muted text-sm mb-4 flex-1">49 countries</p>
+          <div class="flex items-center justify-between pt-4" style="border-top:1px solid #262218;">
+            <span class="font-display font-bold text-2xl grad-text">£10.99</span>
+            <span class="text-xs tracking-widest uppercase text-muted">Get pack →</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="#" class="listing-card rounded-2xl overflow-hidden flex flex-col no-underline" style="background:#1A1710;border:1px solid #262218;">
+        <div class="overflow-hidden" style="aspect-ratio:3/2;">
+          <img src="images/fromfrom-caribbean-cover.png" alt="Caribbean" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105">
+        </div>
+        <div class="p-6 flex flex-col flex-1">
+          <p class="text-xs tracking-widest uppercase mb-2 font-medium" style="color:#C8A84A;">Caribbean</p>
+          <h3 class="font-display font-bold text-lg mb-1">Caribbean</h3>
+          <p class="text-muted text-sm mb-4 flex-1">15 countries</p>
+          <div class="flex items-center justify-between pt-4" style="border-top:1px solid #262218;">
+            <span class="font-display font-bold text-2xl grad-text">£5.99</span>
+            <span class="text-xs tracking-widest uppercase text-muted">Get pack →</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="#" class="listing-card rounded-2xl overflow-hidden flex flex-col no-underline" style="background:#1A1710;border:1px solid #262218;">
+        <div class="overflow-hidden" style="aspect-ratio:3/2;">
+          <img src="images/fromfrom-europe-cover.png" alt="Europe" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105">
+        </div>
+        <div class="p-6 flex flex-col flex-1">
+          <p class="text-xs tracking-widest uppercase mb-2 font-medium" style="color:#C8A84A;">Europe</p>
+          <h3 class="font-display font-bold text-lg mb-1">Europe</h3>
+          <p class="text-muted text-sm mb-4 flex-1">48 countries</p>
+          <div class="flex items-center justify-between pt-4" style="border-top:1px solid #262218;">
+            <span class="font-display font-bold text-2xl grad-text">£9.99</span>
+            <span class="text-xs tracking-widest uppercase text-muted">Get pack →</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="#" class="listing-card rounded-2xl overflow-hidden flex flex-col no-underline" style="background:#1A1710;border:1px solid #262218;">
+        <div class="overflow-hidden" style="aspect-ratio:3/2;">
+          <img src="images/fromfrom-south-east-asia-cover.png" alt="South & East Asia" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105">
+        </div>
+        <div class="p-6 flex flex-col flex-1">
+          <p class="text-xs tracking-widest uppercase mb-2 font-medium" style="color:#C8A84A;">Asia</p>
+          <h3 class="font-display font-bold text-lg mb-1">South & East Asia</h3>
+          <p class="text-muted text-sm mb-4 flex-1">23 countries</p>
+          <div class="flex items-center justify-between pt-4" style="border-top:1px solid #262218;">
+            <span class="font-display font-bold text-2xl grad-text">£8.99</span>
+            <span class="text-xs tracking-widest uppercase text-muted">Get pack →</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="#" class="listing-card rounded-2xl overflow-hidden flex flex-col no-underline" style="background:#1A1710;border:1px solid #262218;">
+        <div class="overflow-hidden" style="aspect-ratio:3/2;">
+          <img src="images/fromfrom-americas-cover.png" alt="Americas" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105">
+        </div>
+        <div class="p-6 flex flex-col flex-1">
+          <p class="text-xs tracking-widest uppercase mb-2 font-medium" style="color:#C8A84A;">Americas</p>
+          <h3 class="font-display font-bold text-lg mb-1">The Americas</h3>
+          <p class="text-muted text-sm mb-4 flex-1">20 countries</p>
+          <div class="flex items-center justify-between pt-4" style="border-top:1px solid #262218;">
+            <span class="font-display font-bold text-2xl grad-text">£7.99</span>
+            <span class="text-xs tracking-widest uppercase text-muted">Get pack →</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="#" class="listing-card rounded-2xl overflow-hidden flex flex-col no-underline" style="background:#1A1710;border:1px solid #262218;">
+        <div class="overflow-hidden" style="aspect-ratio:3/2;">
+          <img src="images/fromfrom-middle-east-north-africa-cover.png" alt="MENA" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105">
+        </div>
+        <div class="p-6 flex flex-col flex-1">
+          <p class="text-xs tracking-widest uppercase mb-2 font-medium" style="color:#C8A84A;">Middle East & North Africa</p>
+          <h3 class="font-display font-bold text-lg mb-1">MENA</h3>
+          <p class="text-muted text-sm mb-4 flex-1">19 countries</p>
+          <div class="flex items-center justify-between pt-4" style="border-top:1px solid #262218;">
+            <span class="font-display font-bold text-2xl grad-text">£6.99</span>
+            <span class="text-xs tracking-widest uppercase text-muted">Get pack →</span>
+          </div>
+        </div>
+      </a>
+
+    </div>
+
+    <!-- Full collection — hero card -->
+    <a href="#" class="listing-card rounded-2xl overflow-hidden grid md:grid-cols-2 no-underline" style="background:#1A1710;border:1px solid rgba(200,168,74,0.3);">
+      <div class="overflow-hidden" style="aspect-ratio:3/2;">
+        <img src="images/fromfrom-full-collection-cover.png" alt="Full Collection" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105">
+      </div>
+      <div class="p-10 flex flex-col justify-center">
+        <div class="cs-badge mb-5 self-start" style="color:#C8A84A;background:rgba(200,168,74,0.12);border-color:rgba(200,168,74,0.3);">Best Value</div>
+        <h3 class="font-display font-bold leading-tight mb-4" style="font-size:clamp(32px,4vw,52px);">
+          Full<br><span class="grad-text">Collection</span>
+        </h3>
+        <p class="text-soft leading-relaxed mb-6 text-sm">Every country. Every continent. One download. 199 FROMFROM files — the complete set.</p>
+        <div class="font-display font-bold grad-text mb-6" style="font-size:42px;">£24.99</div>
+        <div class="btn-grad text-midnight font-semibold text-sm tracking-widest uppercase px-8 py-4 rounded-full hover:opacity-90 transition-opacity inline-flex items-center gap-2 self-start">
+          Get all 199 countries →
+        </div>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- COMING SOON -->
+<section id="coming" class="py-24 px-6 md:px-10" style="background:#12100D;">
+  <div class="max-w-6xl mx-auto">
+    <p class="text-xs tracking-widest uppercase mb-3 font-medium" style="color:#C8A84A;">More from SIWYS</p>
+    <h2 class="font-display font-bold mb-14" style="font-size:clamp(28px,3.5vw,44px);">
+      What's coming next.
+    </h2>
+    <div class="grid md:grid-cols-3 gap-5">
+
+      <div class="rounded-2xl p-8" style="background:#1A1710;border:1px solid #262218;opacity:0.65;">
+        <div class="cs-badge mb-5">FROMFROM · Phase 2</div>
+        <h3 class="font-display font-bold text-xl mb-3">Mixed Heritage</h3>
+        <p class="text-soft text-sm leading-relaxed">Two countries, one print. First FROM from one parent, second FROM from the other. For everyone whose answer to "where are you from?" has two parts.</p>
+      </div>
+
+      <div class="rounded-2xl p-8" style="background:#1A1710;border:1px solid #262218;opacity:0.65;">
+        <div class="cs-badge mb-5">FROMFROM · Phase 2</div>
+        <h3 class="font-display font-bold text-xl mb-3">Textile Fills</h3>
+        <p class="text-soft text-sm leading-relaxed">Ankara wax print. Kente cloth. Shibori. Batik. The same letterforms, filled with heritage textiles instead of flags. A different kind of flag.</p>
+      </div>
+
+      <div class="rounded-2xl p-8" style="background:#1A1710;border:1px solid #262218;opacity:0.65;">
+        <div class="cs-badge mb-5">SIWYS</div>
+        <h3 class="font-display font-bold text-xl mb-3">Say It With Your Chest</h3>
+        <p class="text-soft text-sm leading-relaxed">FROMFROM and more made into wearable pieces. Your identity, on your body. Not just on your wall.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="px-6 md:px-10 pt-16 pb-10" style="border-top:1px solid #262218;">
+  <div class="max-w-6xl mx-auto">
+    <div class="grid md:grid-cols-3 gap-10 mb-12">
+      <div>
+        <div class="font-display font-bold text-2xl mb-3">SIWY<span class="grad-text">S</span></div>
+        <p class="text-muted text-sm leading-relaxed italic font-display">
+          Say It With Your Style.<br>Identity deserves to be worn, displayed, and shared — without explanation.
+        </p>
+      </div>
+      <div>
+        <p class="text-xs tracking-widest uppercase text-muted mb-4 pb-3" style="border-bottom:1px solid #262218;">FROMFROM Packs</p>
+        <ul class="space-y-2.5 text-sm text-soft">
+          <li><a href="#packs" class="hover:text-cream transition-colors flex items-center gap-2"><span class="opacity-40">→</span> Sub-Saharan Africa · £10.99</a></li>
+          <li><a href="#packs" class="hover:text-cream transition-colors flex items-center gap-2"><span class="opacity-40">→</span> Caribbean · £5.99</a></li>
+          <li><a href="#packs" class="hover:text-cream transition-colors flex items-center gap-2"><span class="opacity-40">→</span> Europe · £9.99</a></li>
+          <li><a href="#packs" class="hover:text-cream transition-colors flex items-center gap-2"><span class="opacity-40">→</span> South & East Asia · £8.99</a></li>
+          <li><a href="#packs" class="hover:text-cream transition-colors flex items-center gap-2"><span class="opacity-40">→</span> Americas · £7.99</a></li>
+          <li><a href="#packs" class="hover:text-cream transition-colors flex items-center gap-2"><span class="opacity-40">→</span> MENA · £6.99</a></li>
+          <li><a href="#packs" class="hover:text-cream transition-colors flex items-center gap-2 font-medium" style="color:#C8A84A;"><span class="opacity-60">→</span> Full Collection · £24.99</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="text-xs tracking-widest uppercase text-muted mb-4 pb-3" style="border-bottom:1px solid #262218;">SIWYS</p>
+        <ul class="space-y-2.5 text-sm text-soft">
+          <li><a href="#concept" class="hover:text-cream transition-colors flex items-center gap-2"><span class="opacity-40">→</span> About FROMFROM</a></li>
+          <li><a href="#how" class="hover:text-cream transition-colors flex items-center gap-2"><span class="opacity-40">→</span> How it works</a></li>
+          <li><a href="#coming" class="hover:text-cream transition-colors flex items-center gap-2"><span class="opacity-40">→</span> Coming soon</a></li>
+          <li><a href="https://applesamosa.com" class="hover:text-cream transition-colors flex items-center gap-2"><span class="opacity-40">→</span> Apple Samosa incubator</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="flex flex-wrap items-center justify-between gap-4 pt-6 text-xs text-muted tracking-wide" style="border-top:1px solid #262218;">
+      <span>© 2026 SIWYS · <span style="color:#C8A84A;">Say It With Your Style</span> · FROMFROM is a SIWYS product</span>
+      <span>Instant digital download · No account needed · Re-download any time</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
